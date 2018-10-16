@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 
-import { emailChanged, passwordChanged, loginUser } from '../Actions';
+import { emailChanged, passwordChanged, loginUser } from '../Actions/AuthActions';
 import { Card, CardSection, Input, Button, Spinner } from './commom';
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
   onEmailChange(text) {
     this.props.emailChanged(text);
@@ -94,22 +89,15 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red',
-  },
+  }
 };
 
 const mapStateToProps = ({ auth }) => {
   const { email, password, error, loading } = auth;
 
-  return {
-    email,
-    password,
-    error,
-    loading
-  };
+  return { email, password, error, loading };
 };
 
 export default connect(mapStateToProps, {
-  emailChanged,
-  passwordChanged,
-  loginUser
+  emailChanged, passwordChanged, loginUser
 })(LoginForm);

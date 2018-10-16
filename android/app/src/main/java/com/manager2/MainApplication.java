@@ -1,4 +1,4 @@
-package com.manager;
+package com.manager2;
 
 import android.app.Application;
 

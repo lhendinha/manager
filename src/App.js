@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import firebase from 'firebase';
+//import firebase from 'firebase';
+import firebase from '@firebase/app'
 import ReduxThunk from 'redux-thunk';
 
 import reducers from './Reducers'
-import LoginForm from './Components/LoginForm';
 import Router from './Router';
 
-export default class componentName extends Component {
+class App extends Component {
 
   componentWillMount() {
     firebase.initializeApp({
@@ -31,3 +32,5 @@ export default class componentName extends Component {
     );
   }
 }
+
+export default App;
